@@ -1,0 +1,17 @@
+<network>
+  <name>{{ libvirt_net_name }}</name>
+  <uuid>e4c5769a-8bfc-4cde-a6a7-39bc0b035123</uuid>
+  <forward mode="nat">
+    <nat>
+      <port start="1024" end="65535"/>
+    </nat>
+  </forward>
+  <bridge name="{{ libvirt_bridge_name }}" stp="on" delay="0"/>
+  <mac address="52:00:00:5e:fd:cc"/>
+  <domain name="{{ libvirt_domain }}" localOnly="yes"/>
+  <ip address="192.168.127.1" netmask="255.255.255.0">
+    <dhcp>
+      <range start="192.168.127.2" end="192.168.127.254"/>
+    </dhcp>
+  </ip>
+</network>

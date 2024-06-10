@@ -1,0 +1,17 @@
+---
+# defaults file for libvirt-provision
+base_image_name: Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2
+base_image_url: https://mirror.bahnhof.net/pub/fedora/linux/releases/40/Cloud/x86_64/images/{{ base_image_name }}
+base_image_sha: ac58f3c35b73272d5986fa6d3bc44fd246b45df4c334e99a07b3bbd00684adee
+libvirt_pool_dir: "/var/lib/libvirt/images"
+vm_image_name: "{{ libvirt_pool_dir }}/{{ vm_name }}.qcow2"
+vm_name: f40-test
+vm_vcpus: 2
+vm_ram_mb: 2048
+vm_net: kvmtest
+libvirt_domain: kvmtest.net
+vm_root_pass: redhat123
+cleanup_tmp: no
+ssh_key: /home/mglantz/.ssh/id_rsa.pub
+libvirt_net_name: "kvmtest"
+libvirt_bridge_name: virbr1
