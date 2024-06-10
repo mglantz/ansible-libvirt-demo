@@ -13,6 +13,7 @@ Role Variables
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
+```
 # Name of base image to download
 base_image_name: Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2
 
@@ -54,6 +55,7 @@ libvirt_net_name: "kvmtest"
 
 # Libvirt bridge name (in Linux)
 libvirt_bridge_name: virbr1
+```
 
 Dependencies
 ------------
