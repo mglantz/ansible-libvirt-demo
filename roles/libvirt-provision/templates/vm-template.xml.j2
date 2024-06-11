@@ -16,9 +16,14 @@
       <address type='pci' domain='0x0000' bus='0x05' slot='0x00' function='0x0'/>
     </disk>
     <interface type='network'>
-      <source network='{{ vm_net }}'/>
+      <source network='{{ vm_net1 }}'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+    </interface>
+    <interface type='network'>
+      <source network='{{ vm_net2 }}'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0'/>
     </interface>
     <channel type='unix'>
       <target type='virtio' name='org.qemu.guest_agent.0'/>

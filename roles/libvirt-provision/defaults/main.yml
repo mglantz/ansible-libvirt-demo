@@ -8,10 +8,13 @@ vm_image_name: "{{ libvirt_pool_dir }}/{{ vm_name }}.qcow2"
 vm_name: f40-test
 vm_vcpus: 2
 vm_ram_mb: 2048
-vm_net: kvmtest
+vm_net1: kvmtest1
+vm_net2: kvmtest2
 libvirt_domain: kvmtest.net
 vm_root_pass: redhat123
 cleanup_tmp: no
 ssh_key: /home/mglantz/.ssh/id_rsa.pub
-libvirt_net_name: "kvmtest"
-libvirt_bridge_name: virbr1
+libvirt_net_name1: "kvmtest1"
+libvirt_bridge_name1: virbr1
+libvirt_net_name2: "kvmtest2"
+libvirt_bridge_name2: virbr3

@@ -8,16 +8,27 @@
 #    state: present
 #  become: yes
 
-- name: "Define network bridge: {{ libvirt_net_name }}"
+- name: "Define network bridge: {{ libvirt_net_name1 }}"
   community.libvirt.virt_net:
     command: define
-    name: "{{ libvirt_net_name }}"
-    xml: '{{ lookup("template", "templates/bridge.xml.j2") }}'
+    name: "{{ libvirt_net_name1 }}"
+    xml: '{{ lookup("template", "templates/bridge1.xml.j2") }}'
 
-- name: "Start network: {{ libvirt_net_name }}"
+- name: "Define network bridge: {{ libvirt_net_name2 }}"
+  community.libvirt.virt_net:
+    command: define
+    name: "{{ libvirt_net_name2 }}"
+    xml: '{{ lookup("template", "templates/bridge2.xml.j2") }}'
+
+- name: "Start network: {{ libvirt_net_name1 }}"
   community.libvirt.virt_net:
     command: create
-    name: "{{ libvirt_net_name }}"
+    name: "{{ libvirt_net_name1 }}"
+
+- name: "Start network: {{ libvirt_net_name2 }}"
+  community.libvirt.virt_net:
+    command: create
+    name: "{{ libvirt_net_name2 }}"
 
 - name: Get VMs list
   community.libvirt.virt:
