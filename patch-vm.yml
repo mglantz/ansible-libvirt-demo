@@ -1,0 +1,17 @@
+- name: Patch VM on site
+  hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Update software on VM
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+      register: patched
+    - name: Reboot the system when software has been updated
+      ansible.builtin.reboot:
+      when: patched is changed
+    - name: Check so that server is online
+      ansible.builtin.wait_for:
+        port: 22
+        search_regex: OpenSSH

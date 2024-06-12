@@ -2,15 +2,6 @@
   hosts: localhost
   gather_facts: yes
   become: yes
-  vars:
-    pool_dir: "/var/lib/libvirt/images"
-    vm: kvmtest01
-    vcpus: 2
-    ram_mb: 2048
-    cleanup: no
-    net: kvmtest
-    ssh_pub_key: "/home/mglantz/.ssh/id_rsa.pub"
-
   tasks:
     - name: KVM Provision role
       include_role:

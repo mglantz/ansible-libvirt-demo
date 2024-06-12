@@ -1,0 +1,10 @@
+- name: Start VM on site
+  hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Start VM
+      community.libvirt.virt:
+        name: "kvmtest01"
+        state: running
+

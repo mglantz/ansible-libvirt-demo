@@ -1,0 +1,9 @@
+- name: Stop VM on site
+  hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Stop VM
+      community.libvirt.virt:
+        name: "kvmtest01"
+        state: shutdown
