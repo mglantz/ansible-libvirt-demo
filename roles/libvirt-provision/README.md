@@ -30,7 +30,7 @@ libvirt_pool_dir: "/var/lib/libvirt/images"
 vm_image_name: "{{ libvirt_pool_dir }}/{{ vm_name }}.qcow2"
 
 # Name of VM
-vm_name: f40-test
+vm_name: kvmtest01
 
 # vCPUs for VM
 vm_vcpus: 2
