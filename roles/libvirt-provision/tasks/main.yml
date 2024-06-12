@@ -68,16 +68,25 @@
       --uninstall cloud-init --selinux-relabel
     when: copy_results is changed
 
-  - name: Define vm
+  - name: Define VM
     community.libvirt.virt:
       command: define
       xml: "{{ lookup('template', 'vm-template.xml.j2') }}"
+    when: vm_state == "running"
 
-- name: Ensure VM is started
+- name: Ensure VM state
   community.libvirt.virt:
     name: "{{ vm_name }}"
-    state: running
+    state: "{{ vm_state }}"
   register: vm_start_results
   until: "vm_start_results is success"
   retries: 15
   delay: 2
+  when: vm_state == "running"
+
+- name: Undefine VM if told to destroy it
+  community.libvirt.virt:
+    command: undefine
+    name: "{{ vm_name }}"
+  when: vm_state == "destroyed"
+
