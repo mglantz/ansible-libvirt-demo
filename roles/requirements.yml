@@ -1,4 +1,0 @@
----
-roles:
-  - community.libvirt.virt_net
-  - community.libvirt.virt
