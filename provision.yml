@@ -4,7 +4,7 @@
   become: yes
   vars:
     pool_dir: "/var/lib/libvirt/images"
-    vm: f40-test03
+    vm: kvmtest01
     vcpus: 2
     ram_mb: 2048
     cleanup: no
@@ -21,5 +21,6 @@
         vm_vcpus: "{{ vcpus }}"
         vm_ram_mb: "{{ ram_mb }}"
         vm_net: "{{ net }}"
+        vm_state: "destroyed"
         cleanup_tmp: "{{ cleanup }}"
         ssh_key: "{{ ssh_pub_key }}"
