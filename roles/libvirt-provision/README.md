@@ -38,6 +38,9 @@ vm_vcpus: 2
 # Memory for VM
 vm_ram_mb: 2048
 
+# If we are to provision or decommission VM
+vm_state: <running|destroyed>
+
 # Name of libvirt network bridge we have created
 vm_net: kvmtest
 

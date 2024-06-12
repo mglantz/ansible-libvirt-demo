@@ -5,6 +5,6 @@
   tasks:
     - name: Start VM
       community.libvirt.virt:
-        name: "kvmtest01"
+        name: "{{ vm_name }}"
         state: running
 
