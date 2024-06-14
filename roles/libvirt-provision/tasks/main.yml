@@ -84,16 +84,14 @@
   delay: 2
   when: vm_state == "running"
 
-- name: Undefine VM if told to destroy it
-  community.libvirt.virt:
-    command: undefine
-    name: "{{ vm_name }}"
-  when: vm_state == "destroyed"
-
 - name: Remove VM if told to destroy it
   community.libvirt.virt:
     name: "{{ vm_name }}"
     state: shutdown
   when: vm_state == "destroyed"
 
-
+- name: Undefine VM if told to destroy it
+  community.libvirt.virt:
+    command: undefine
+    name: "{{ vm_name }}"
+  when: vm_state == "destroyed"
